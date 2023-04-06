@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n, q, r, c, x, i, j;
+    scanf("%d %d", &n, &q);
+    int matrix[n][n], max_val = 0;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            matrix[i][j] = 0;  //initialize all matrix values to 0(given)
+        }
+    }
+    while (q--) {
+        char op[7]; //creating a string to input "Rowadd r" and "ColAdd c"
+        scanf("%s %d %d", op, &r, &x); //no ampersand for string datatype
+        if (op[0] == 'R') {  //cheching if the 1st value of the string is R
+            for (j = 0; j < n; j++) { //The -1 in r-1 is necessary because the rows and columns of the grid are numbered from 1 to n, inclusive, but the indices of the array are numbered from 0 to n-1. So we subtract 1 from r to get the correct index in the grid array.
+                matrix[r-1][j] += x;//x value has been added to the respective row
+                if (matrix[r-1][j] > max_val) {
+                    max_val = matrix[r-1][j];
+                }
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                matrix[i][r-1] += x;
+                if (matrix[i][r-1] > max_val) {
+                    max_val = matrix[i][r-1];
+                }
+            }
+        }
+    }
+    printf("%d\n", max_val);
+    return 0;
+}
