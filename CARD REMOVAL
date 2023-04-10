@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int t;
+    scanf("%d", &t);
+    while(t--){
+        int N, i, j, max = 0;
+        scanf("%d",&N);
+        int arr[N], freq[N];
+        for(i=0; i<N; i++){
+            scanf("%d",&arr[i]);
+        }
+        for (i=0; i<N; i++){
+            freq[i] = 0;
+            for(j=i; j<N; j++){
+                if (arr[j] == arr[i]){
+                    freq[i]++;
+                }
+            }
+            if(freq[i]>max){
+                max = freq[i];
+            }
+        }
+        printf("%d \n", N - max);
+    }
+    return 0;
+}
