@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+	int time; scanf( "%d", &time );
+while(time--)
+{
+    int R,C; scanf( "%d%d", &R, &C );
+    char M[R][C];
+    for (int i=0; i<=R-1; i++) scanf("%s", M[i]);
+    
+    for ( int i = 0 ; i <= R - 1 ; i++ )
+    {
+        for ( int j = 0 ; j <= C - 1 ;j++ )
+        {
+            if ( (M[i][j] == 'S' || M[i][j] == 's')  )
+            {
+                if ( ( M[i][j+1] == 'P' || M[i][j+1] == 'p') && j <= C - 5 )
+                {
+                    if ( M[i][j+2] == 'O' || M[i][j+2] == 'o' )
+                    {
+                        if ( M[i][j+3] == 'O' || M[i][j+3] == 'o' )
+                        {
+                            if ( M[i][j+4] == 'N' || M[i][j+4] == 'n' )
+                            {
+                                printf( "There is a spoon!\n" );
+                                goto end;
+                            }
+                        }
+                    }
+                }
+                if ( (M[i+1][j] == 'P' || M[i+1][j] == 'p') && i <= R - 5 )
+                {
+                    if ( M[i+2][j] == 'O' || M[i+2][j] == 'o' )
+                    {
+                        if ( M[i+3][j] == 'O' || M[i+3][j] == 'o' )
+                        {
+                            if ( M[i+4][j] == 'N' || M[i+4][j] == 'n' )
+                            {
+                                printf( "There is a spoon!\n" );
+                                goto end;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    printf( "There is indeed no spoon!\n" );
+    end:
+    ;
+}
+	return 0;
+}
+
