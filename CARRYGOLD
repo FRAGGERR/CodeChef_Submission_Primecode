@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(){
+    int t;
+    scanf("%d",&t);
+    while(t--){
+        int N,X,Y;
+        scanf("%d %d %d", &N,&X,&Y);
+        if((Y*(N+1))>=X){
+            printf("YES\n");
+        }else{
+            printf("NO\n");
+        }
+        
+    }
+
+    return 0;
+}
