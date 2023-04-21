@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int T, D, N, i, j, sum;
+
+    scanf("%d", &T); // read the number of test cases
+
+    for (i = 0; i < T; i++) { // loop through each test case
+        scanf("%d %d", &D, &N); // read the values of D and N
+
+        sum = N; // initialize the sum to N
+
+        for (j = 0; j < D; j++) { // loop through each application of the sum function
+            sum = (sum * (sum + 1)) / 2; // calculate the sum using the formula (sum(N) = N * (N + 1) / 2)
+        }
+
+        printf("%d\n", sum); // print the result for this test case
+    }
+
+    return 0;
+}
